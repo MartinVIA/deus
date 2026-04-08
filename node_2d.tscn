@@ -1,3 +1,30 @@
 [gd_scene format=3 uid="uid://dk4a0ecme4v5x"]
 
-[node name="Node2D" type="Node2D" unique_id=1471129366]
+[ext_resource type="Script" uid="uid://bymnmh463040i" path="res://scripts/node_2d.gd" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://dga0w5yv4yi6u" path="res://images/frog.png" id="2_0e48y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y32ns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0e48y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0e48y"]
+radius = 96.0
+height = 294.0
+
+[node name="player" type="CharacterBody2D" unique_id=783565048]
+script = ExtResource("1_wtcfe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448979740]
+position = Vector2(491, 319)
+sprite_frames = SubResource("SpriteFrames_y32ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1742081012]
+position = Vector2(530, 285)
+shape = SubResource("CapsuleShape2D_0e48y")
